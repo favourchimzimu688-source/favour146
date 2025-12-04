@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🔢 Number Analyzer Pro</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <h1><i class="fas fa-calculator"></i> Number Analyzer Pro</h1>
+            <p class="subtitle">Find perfect squares and even numbers between any range</p>
+        </header>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Input Section -->
+            <section class="input-section card">
+                <h2><i class="fas fa-sliders-h"></i> Input Range</h2>
+                <div class="input-group">
+                    <div class="input-field">
+                        <label for="startNumber"><i class="fas fa-play-circle"></i> Start Number (a):</label>
+                        <input type="number" id="startNumber" placeholder="Enter start number" value="1" min="-999999" max="999999">
+                    </div>
+                    <div class="input-field">
+                        <label for="endNumber"><i class="fas fa-stop-circle"></i> End Number (b):</label>
+                        <input type="number" id="endNumber" placeholder="Enter end number" value="100" min="-999999" max="999999">
+                    </div>
+                </div>
+                
+                <div class="button-group">
+                    <button id="calculateBtn" class="btn btn-primary">
+                        <i class="fas fa-calculator"></i> Calculate
+                    </button>
+                    <button id="clearBtn" class="btn btn-secondary">
+                        <i class="fas fa-broom"></i> Clear
+                    </button>
+                    <button id="themeBtn" class="btn btn-accent">
+                        <i class="fas fa-moon"></i> Dark Mode
+                    </button>
+                </div>
+            </section>
+
+            <!-- Results Section -->
+            <section class="results-section card">
+                <h2><i class="fas fa-chart-bar"></i> Results</h2>
+                
+                <div class="stats-bar">
+                    <div class="stat">
+                        <span class="stat-label">Total Numbers:</span>
+                        <span id="totalNumbers" class="stat-value">0</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-label">Perfect Squares:</span>
+                        <span id="squaresCount" class="stat-value">0</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-label">Even Numbers:</span>
+                        <span id="evensCount" class="stat-value">0</span>
+                    </div>
+                </div>
+
+                <div class="tabs">
+                    <button class="tab-btn active" data-tab="squares">Perfect Squares</button>
+                    <button class="tab-btn" data-tab="evens">Even Numbers</button>
+                    <button class="tab-btn" data-tab="all">All Numbers</button>
+                </div>
+
+                <div class="results-container">
+                    <!-- Perfect Squares Tab -->
+                    <div id="squares-tab" class="tab-content active">
+                        <div id="squaresList" class="numbers-list">
+                            <p class="empty-message">Click "Calculate" to see perfect squares</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Even Numbers Tab -->
+                    <div id="evens-tab" class="tab-content">
+                        <div id="evensList" class="numbers-list">
+                            <p class="empty-message">Click "Calculate" to see even numbers</p>
+                        </div>
+                    </div>
+                    
+                    <!-- All Numbers Tab -->
+                    <div id="all-tab" class="tab-content">
+                        <div id="allList" class="numbers-list">
+                            <p class="empty-message">Click "Calculate" to see all numbers</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Visualization Section -->
+            <section class="visualization-section card">
+                <h2><i class="fas fa-chart-pie"></i> Visualization</h2>
+                <div class="chart-container">
+                    <canvas id="numbersChart"></canvas>
+                </div>
+            </section>
+        </main>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p>Number Analyzer Pro • Made with <i class="fas fa-heart"></i> • All calculations performed in your browser</p>
+            <p class="footer-info"><i class="fas fa-info-circle"></i> Perfect squares are numbers like 1, 4, 9, 16, 25...</p>
+        </footer>
+    </div>
+
+    <!-- JavaScript Files -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
